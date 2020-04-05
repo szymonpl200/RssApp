@@ -8,22 +8,25 @@ $('#rss_button').on('click', function(){
 			email: email
 	}
 	
-	$.ajax({
- 		type: "POST",
- 		url: 'sendRss',
- 		timeout: 1000,
- 		contentType : 'application/json',
- 		dataTyp: "text",
- 		data: JSON.stringify(message),
-        success: function(data) {
-        	console.log(data);
-        	$('#url_input').text(data);
-        },
- 		fail: function(){
- 			console.log("fail");
- 		},
- 		error: function(e){
- 		   console.log(e);
- 		}
-	});
+	
+	function getData(){ 
+		$.ajax({
+	 		type: "POST",
+	 		url: 'sendRss',
+	 		timeout: 500,
+	 		contentType: 'application/json',
+	 		data: JSON.stringify(message),
+	 		dataType: "json",
+	        success: function () {
+	        	console.log('success');
+	        },
+	 		fail: function(){
+	 			console.log("fail");
+	 		},
+	 		error: function(e){
+	 		    console.log(e);
+	 		}
+		});
+	}
+	getData();
 });
