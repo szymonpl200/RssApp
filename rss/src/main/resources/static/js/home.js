@@ -1,37 +1,29 @@
-$('#inner-button').on('click', function(){
+$('#rss_button').on('click', function(){
 	
-	var province = $('#province').val();
-	var messageContent = $('#messageContent').val();
-	var $spinner = $('#spinner');
-	
-	$spinner.removeClass('hide');
+	var email = $('#email_input').val();
+	var url = $('#url_input').val();
 	
 	var message = {
-			province: province,
-			messageContent: messageContent
+			url: url,
+			email: email
 	}
 	
-	function getData(){ 
-		$.ajax({
-	 		type: "POST",
-	 		url: 'sendAlertToUser',
-	 		timeout: 10000,
-	 		contentType : 'application/json',
-	 		data: JSON.stringify(message),
-	        success: function () {
-	        	console.log('@@@NO NEED HELP - REQUEST EMAIL SEND')
-	        	$spinner.addClass('hide');
-	        },
-	 		fail: function(){
-	 			console.log("fail");
-	 		},
-	 		error: function(e){
-	 		    setTimeout(function(){
-		 			console.log('@@@@Rerun operation for other records : STARTED : need help for new request');
-		 			getData();
-	 		    }, 10000);
-	 		}
-		});
-	}
-	getData();
+	$.ajax({
+ 		type: "POST",
+ 		url: 'sendRss',
+ 		timeout: 1000,
+ 		contentType : 'application/json',
+ 		crossDomain: true,
+ 		data: JSON.stringify(message),
+        success: function (data) {
+        	console.log("succes");
+        	$('#url_input').text(data);
+        },
+ 		fail: function(){
+ 			console.log("fail");
+ 		},
+ 		error: function(e){
+ 		   console.log(e);
+ 		}
+	});
 });
