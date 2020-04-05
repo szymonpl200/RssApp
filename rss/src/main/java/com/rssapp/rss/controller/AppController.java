@@ -28,13 +28,15 @@ public class AppController {
 	
 	@ResponseBody
 	@RequestMapping(value={"/sendRss"}, method = RequestMethod.POST)
-	public void sendAlerToUser(@RequestBody String data, HttpServletRequest request) 
+	public String sendAlerToUser(@RequestBody String data, HttpServletRequest request) 
 	{
 		JSONObject jsonObject = new JSONObject();
 		jsonObject = new JSONObject(data);
 		String url = (String) jsonObject.get("url");
 		String email = (String) jsonObject.get("email");
 		System.out.println("emial" + email + " " + "url" + url);
+		data = "aaa";
+		return data;
 
 	}
 

@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -19,7 +20,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
 			.authorizeRequests()
 			.antMatchers("/").permitAll()
 			.antMatchers("/login").permitAll()
-			.antMatchers("/registration").permitAll();
+			.antMatchers("/registration").permitAll()
+			.antMatchers("/admin/**").hasAnyAuthority("ADMIN").anyRequest()
+			.authenticated().and().csrf().disable().formLogin()
+			.loginPage("/login")
+			.failureUrl("/login-error.html")
+			.loginProcessingUrl("/login")
+			.permitAll()
+			.defaultSuccessUrl("/home")
+			.usernameParameter("email")
+			.passwordParameter("password")
+			.and().logout()
+			.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+			.logoutUrl("/logout")
+			.logoutSuccessUrl("/login?logout").and().exceptionHandling()
+			.accessDeniedPage("/access-denied");
 		
 	}
 

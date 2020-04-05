@@ -13,10 +13,10 @@ $('#rss_button').on('click', function(){
  		url: 'sendRss',
  		timeout: 1000,
  		contentType : 'application/json',
- 		crossDomain: true,
+ 		dataTyp: "text",
  		data: JSON.stringify(message),
-        success: function (data) {
-        	console.log("succes");
+        success: function(data) {
+        	console.log(data);
         	$('#url_input').text(data);
         },
  		fail: function(){
