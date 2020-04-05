@@ -7,40 +7,20 @@
 		<link rel="shortcut icon" href="">
 	</head>
 	<body>
-		<div class="spinner-grow text-success hide" role="status" id="spinner">
-			<span class="sr-only">Loading...</span>
-		</div>
-		
 		<div class="container">
-			<div id="tabOne"><H3>Administrative Panel</H3></div>
-			<div class="outer-group">
-				<div class="inner-group">
-		        	Choose province for alert:
-		        	<select  name="province" id="province">
-					    <option th:value="'dolnośląskie'" th:text="dolnośląskie"></option>
-					    <option th:value="'wielkopolskie'" th:text="wielkopolskie"></option>
-					    <option th:value="'	kujawsko-pomorskie'" th:text="kujawsko-pomorskie"></option>
-					    <option th:value="'Wielkopolskie'" th:text="lubelskie"></option>
-					    <option th:value="'lubuskie'" th:text="lubuskie"></option>
-					    <option th:value="'łódzkie'" th:text="	łódzkie"></option>
-					    <option th:value="'małopolskie'" th:text="małopolskie"></option>
-					    <option th:value="'mazowieckie'" th:text="mazowieckie"></option>
-					    <option th:value="'opolskie'" th:text="opolskie"></option>
-					    <option th:value="'podkarpackie'" th:text="podkarpackie"></option>
-					    <option th:value="'podlaskie'" th:text="podlaskie"></option>
-					    <option th:value="'pomorskie'" th:text="pomorskie"></option>
-					    <option th:value="'śląskie'" th:text="śląskie"></option>
-					    <option th:value="'świętokrzyskie'" th:text="świętokrzyskie"></option>
-					    <option th:value="'warmińsko-mazurskie'" th:text="warmińsko-mazurskie"></option>
-					    <option th:value="'podlaskie'" th:text="podlaskie"></option>
-					    <option th:value="'zachodniopomorskie'" th:text="zachodniopomorskie"></option>
-					</select>
-				</div>
-				<div class="text-area-inner">
-					<p>Text Alert</p>
-					<textarea placeholder="Enter your text" id="messageContent"></textarea>
-					<button id="inner-button" span style ="margin-left:50%">Notify users from Province</button>
-				</div>
+			<div class="form-group" id="emial_field">
+				<label for="emialLabel" id="email_label">Email address</label><br>
+				<input type="email" class="form-control" id="email_input" placeholder="name@example.com">
+			</div>
+			<div class="form-group" id="url_field">
+				<label for="urlLabel" id="url_label">URL</label><br>
+				<input type="text" class="form-control" id="url_input" placeholder="URL">
+			</div>
+			<div id="returnedText">
+				<span> Pozdro 600</span>
+			</div>
+			<div id="button_area">
+				<button type="button" class="btn btn-success" id="rss_button">Send RSS</button>
 			</div>
 		</div>
 		

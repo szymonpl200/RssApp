@@ -13,19 +13,12 @@ import com.rssapp.rss.entity.RssFeed;
 public class AppController {
 	
 	@RequestMapping(value={"/", "/login"}, method = RequestMethod.GET)
-    public ModelAndView login(@RequestParam(value = "error", required = false) String error){
+    public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
-        if (error != null) 
-        {
-          modelAndView.setViewName("error page");
-        } 
-        else
-        {
-    		RssFeed rssFeed = new RssFeed();
-    		modelAndView.addObject("rssFeed", rssFeed);
-    		modelAndView.setViewName("home");
-    		
-        }
+		RssFeed rssFeed = new RssFeed();
+		
+		modelAndView.addObject("rssFeed", rssFeed);
+		modelAndView.setViewName("home");
 
         return modelAndView;
     }
