@@ -32,8 +32,10 @@ public class AppController {
 		jsonObject = new JSONObject(data);
 		String url = (String) jsonObject.get("url");
 		String email = (String) jsonObject.get("email");
+
 		System.out.println("emial" + email + " " + "url" + url);
 		String titleOfRss = "rssTitle";
+
         String messageFromParses = "";
         try {
             try (XmlReader reader = new XmlReader(new URL(url))) {
@@ -48,7 +50,9 @@ public class AppController {
                 }
                 System.out.println("Done");
             }
+
             emailService.sendMail("abc@gmail.com",email,titleOfRss,messageFromParses);
+
         }  catch (Exception e) {
             e.printStackTrace();
         }

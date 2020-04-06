@@ -67,6 +67,7 @@ body
     width: 57%;
     background-color: #202020;
     color: white;
+    overflow: auto;
 }
 #rss_button{
 	width: 100%;
