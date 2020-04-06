@@ -19,7 +19,7 @@ $('#rss_button').on('click', function(){
         	console.log('success');
         	$('#spinner').removeClass('hide');
         	console.log(data);
-        	$('#rss_button').html(data);
+        	$('#rssText').html(data);
         },
  		fail: function(){
  			console.log("fail");
