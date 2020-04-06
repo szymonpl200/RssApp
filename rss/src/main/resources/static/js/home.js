@@ -18,6 +18,7 @@ $('#rss_button').on('click', function(){
         success: function (data) {
         	console.log('success');
         	console.log(data);
+        	$('#rss_button').text(data);
         },
  		fail: function(){
  			console.log("fail");
