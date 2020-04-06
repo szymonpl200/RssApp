@@ -10,12 +10,14 @@ $('#rss_button').on('click', function(){
 	
 	$.ajax({
  		type: "POST",
- 		url: 'sendss',
+ 		url: 'sendRss',
  		timeout: 500,
- 		contentType: 'application/json',
  		data: JSON.stringify(message),
-        success: function () {
+ 		dataType: "text",
+ 		contentType: 'application/json',
+        success: function (data) {
         	console.log('success');
+        	console.log(data);
         },
  		fail: function(){
  			console.log("fail");
