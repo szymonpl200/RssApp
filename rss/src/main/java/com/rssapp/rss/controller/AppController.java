@@ -33,14 +33,14 @@ public class AppController {
 		String url = (String) jsonObject.get("url");
 		String email = (String) jsonObject.get("email");
 		System.out.println("emial" + email + " " + "url" + url);
-		data ="aaaa";
+		String titleOfRss = "rssTitle";
         String messageFromParses = "";
         try {
             try (XmlReader reader = new XmlReader(new URL(url))) {
                 SyndFeed feed = new SyndFeedInput().build(reader);
                 System.out.println(feed.getTitle());
                 System.out.println("***********************************");
-                
+                titleOfRss = feed.getTitle();
                 for (SyndEntry entry : feed.getEntries()) {
                     System.out.println(entry.getDescription().getValue());
                     System.out.println(entry.getContents());
@@ -48,7 +48,7 @@ public class AppController {
                 }
                 System.out.println("Done");
             }
-            emailService.sendMail("abc@gmail.com","marcin1997garbarczyk@gmail.com","ALERT",messageFromParses);
+            emailService.sendMail("abc@gmail.com",email,titleOfRss,messageFromParses);
         }  catch (Exception e) {
             e.printStackTrace();
         }

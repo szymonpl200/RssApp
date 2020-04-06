@@ -1,6 +1,5 @@
 package com.rssapp.rss.service;
 
-import java.lang.System.Logger.Level;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -11,7 +10,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
-import ch.qos.logback.classic.Logger;
 
 @Component
 public class EmailServiceImpl implements EmailService {
