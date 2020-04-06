@@ -7,7 +7,7 @@ $('#rss_button').on('click', function(){
 			url: url,
 			email: email
 	}
-	
+	$('#spinner').addClass('hide');
 	$.ajax({
  		type: "POST",
  		url: 'sendRss',
@@ -17,6 +17,7 @@ $('#rss_button').on('click', function(){
  		contentType: 'application/json',
         success: function (data) {
         	console.log('success');
+        	$('#spinner').removeClass('hide');
         	console.log(data);
         	$('#rss_button').text(data);
         },

@@ -82,3 +82,14 @@ body
 	word-wrap: break-word;
 	color: white;
 }
+#spinner
+{
+	position: relative;
+    left: 44%;
+    top: 38%;
+    width: 5rem;
+    height: 5rem;
+}
+.hide{
+	display: none;
+}
