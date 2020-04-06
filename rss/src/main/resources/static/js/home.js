@@ -7,18 +7,17 @@ $('#rss_button').on('click', function(){
 			url: url,
 			email: email
 	}
-	$('#spinner').addClass('hide');
+	
+	$('#spinner').removeClass('hide');
 	$.ajax({
  		type: "POST",
  		url: 'sendRss',
- 		timeout: 500,
+ 		timeout: 50000,
  		data: JSON.stringify(message),
  		dataType: "text",
  		contentType: 'application/json',
         success: function (data) {
-        	console.log('success');
-        	$('#spinner').removeClass('hide');
-        	console.log(data);
+        	$('#spinner').addClass('hide');
         	$('#rssText').html(data);
         },
  		fail: function(){
