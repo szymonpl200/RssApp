@@ -78,3 +78,6 @@ body
     height: 8%;
     width: 57%;
 }
+#rssText{
+	word-wrap: break-word;
+}
